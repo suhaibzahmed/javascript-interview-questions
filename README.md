@@ -1609,7 +1609,7 @@
 
 56. ### What is a callback hell
 
-    Callback Hell is an anti-pattern with multiple nested callbacks which makes code hard to read and debug when dealing with asynchronous logic. The callback hell looks like below,
+    Callback Hell is an anti-pattern with multiple nested callbacks which makes code hard to read and debug when dealing with asynchronous logic. Callback hell, also known as the "Pyramid of Doom," is a situation that can occur in JavaScript when dealing with multiple nested callbacks, particularly in asynchronous operations. It arises when the completion of one asynchronous operation depends on the completion of another, leading to deeply nested functions that make the code difficult to read, understand, and maintain. The callback hell looks like below,
 
     ```javascript
     async1(function(){
