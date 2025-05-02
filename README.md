@@ -3583,13 +3583,31 @@
 
 185. ### What is a rest parameter
 
-     Rest parameter is an improved way to handle function parameters which allows us to represent an indefinite number of arguments as an array. The syntax would be as below,
+     The rest operator collects multiple elements and condenses them into a single array. Rest parameter is an improved way to handle function parameters which allows us to represent an indefinite number of arguments as an array. It is used in these contexts:
+
+     - In Function Parameter Lists: To represent an indefinite number of arguments as an array.
 
      ```javascript
-     function f(a, b, ...theArgs) {
-       // ...
-     }
+     function myFunc(a, b, ...rest) {
+      console.log(a, b); // 1, 2
+      console.log(rest); // [3, 4, 5]
+      }
+      myFunc(1, 2, 3, 4, 5);
      ```
+
+     - In Destructuring Assignment: To extract the remaining parts of an array or object into a new variable.
+    
+       ```javascript
+       const arr = [1, 2, 3, 4, 5];
+        const [first, second, ...remaining] = arr;
+        console.log(first, second); // 1, 2
+        console.log(remaining); // [3, 4, 5]
+        
+        const obj = { a: 1, b: 2, c: 3 };
+        const { a, ...rest } = obj;
+        console.log(a); // 1
+        console.log(rest); // { b: 2, c: 3 }
+        ```
 
      For example, let's take a sum example to calculate on dynamic number of parameters,
 
@@ -3612,7 +3630,7 @@
 
      **[⬆ Back to Top](#table-of-contents)**
 
-186. ### What happens if you do not use rest parameter as a last argument
+187. ### What happens if you do not use rest parameter as a last argument
 
      The rest parameter should be the last argument, as its job is to collect all the remaining arguments into an array. For example, if you define a function like below it doesn’t make any sense and will throw an error.
 
@@ -3625,7 +3643,7 @@
 
      **[⬆ Back to Top](#table-of-contents)**
 
-187. ### What are the bitwise operators available in javascript
+188. ### What are the bitwise operators available in javascript
 
      Below are the list of bitwise logical operators used in JavaScript
 
@@ -3639,7 +3657,7 @@
 
      **[⬆ Back to Top](#table-of-contents)**
 
-188. ### What is a spread operator
+189. ### What is a spread operator
 
      Spread operator allows iterables( arrays / objects / strings ) to be expanded into single arguments/elements. Let's take an example to see this behavior,
 
@@ -3655,7 +3673,7 @@
 
      **[⬆ Back to Top](#table-of-contents)**
 
-189. ### How do you determine whether object is frozen or not
+190. ### How do you determine whether object is frozen or not
 
      Object.isFrozen() method is used to determine if an object is frozen or not.An object is frozen if all of the below conditions hold true,
 
@@ -3674,7 +3692,7 @@
 
      **[⬆ Back to Top](#table-of-contents)**
 
-190. ### How do you determine two values same or not using object
+191. ### How do you determine two values same or not using object
 
      The Object.is() method determines whether two values are the same value. For example, the usage with different types of values would be,
 
@@ -3699,7 +3717,7 @@
 
      **[⬆ Back to Top](#table-of-contents)**
 
-191. ### What is the purpose of using object is method
+192. ### What is the purpose of using object is method
 
      Some of the applications of Object's `is` method are follows,
 
@@ -3710,7 +3728,7 @@
 
      **[⬆ Back to Top](#table-of-contents)**
 
-192. ### How do you copy properties from one object to other
+193. ### How do you copy properties from one object to other
 
      You can use the Object.assign() method which is used to copy the values and properties from one or more source objects to a target object. It returns the target object which has properties and values copied from the source objects. The syntax would be as below,
 
@@ -3735,7 +3753,7 @@
 
      **[⬆ Back to Top](#table-of-contents)**
 
-193. ### What are the applications of assign method
+194. ### What are the applications of assign method
 
      Below are the some of main applications of Object.assign() method,
 
@@ -3744,7 +3762,7 @@
 
      **[⬆ Back to Top](#table-of-contents)**
 
-194. ### What is a proxy object
+195. ### What is a proxy object
 
      The Proxy object is used to define custom behavior for fundamental operations such as property lookup, assignment, enumeration, function invocation, etc. 
      
@@ -3802,7 +3820,7 @@
 
      **[⬆ Back to Top](#table-of-contents)**
 
-195. ### What is the purpose of seal method
+196. ### What is the purpose of seal method
 
      The **Object.seal()** method is used to seal an object, by preventing new properties from being added to it and marking all existing properties as non-configurable. But values of present properties can still be changed as long as they are writable. The next level of immutability would be the [`Object.freeze()`](#what-is-a-freeze-method) method. Let's see the below example to understand more about seal() method
 
@@ -3819,7 +3837,7 @@
 
      **[⬆ Back to Top](#table-of-contents)**
 
-196. ### What are the applications of seal method
+197. ### What are the applications of seal method
 
      Below are the main applications of Object.seal() method,
 
@@ -3828,13 +3846,13 @@
 
      **[⬆ Back to Top](#table-of-contents)**
 
-197. ### What are the differences between freeze and seal methods
+198. ### What are the differences between freeze and seal methods
 
      If an object is frozen using the Object.freeze() method then its properties become immutable and no changes can be made in them whereas if an object is sealed using the Object.seal() method then the changes can be made in the existing properties of the object.
 
      **[⬆ Back to Top](#table-of-contents)**
 
-198. ### How do you determine if an object is sealed or not
+199. ### How do you determine if an object is sealed or not
 
      The Object.isSealed() method is used to determine if an object is sealed or not. An object is sealed if all of the below conditions hold true
 
@@ -3855,7 +3873,7 @@
 
      **[⬆ Back to Top](#table-of-contents)**
 
-199. ### How do you get enumerable key and value pairs
+200. ### How do you get enumerable key and value pairs
 
      The Object.entries() method is used to return an array of a given object's own enumerable string-keyed property [key, value] pairs, in the same order as that provided by a for...in loop. Let's see the functionality of object.entries() method in an example,
 
@@ -3875,7 +3893,7 @@
 
      **[⬆ Back to Top](#table-of-contents)**
 
-200. ### What is the main difference between Object.values and Object.entries method
+201. ### What is the main difference between Object.values and Object.entries method
 
      The Object.values() method's behavior is similar to Object.entries() method but it returns an array of values instead [key,value] pairs.
 
@@ -3892,7 +3910,7 @@
 
      **[⬆ Back to Top](#table-of-contents)**
 
-201. ### How can you get the list of keys of any object
+202. ### How can you get the list of keys of any object
 
      You can use the `Object.keys()` method which is used to return an array of a given object's own property names, in the same order as we get with a normal loop. For example, you can get the keys of a user object,
 
@@ -3908,7 +3926,7 @@
 
      **[⬆ Back to Top](#table-of-contents)**
 
-202. ### How do you create an object with prototype
+203. ### How do you create an object with prototype
 
      The Object.create() method is used to create a new object with the specified prototype object and properties. i.e, It uses an existing object as the prototype of the newly created object. It returns a new object with the specified prototype object and properties.
 
@@ -3929,7 +3947,7 @@
 
      **[⬆ Back to Top](#table-of-contents)**
 
-203. ### What is a WeakSet
+204. ### What is a WeakSet
 
      WeakSet is used to store a collection of weakly(weak references) held objects. The syntax would be as follows,
 
@@ -3950,7 +3968,7 @@
 
      **[⬆ Back to Top](#table-of-contents)**
 
-204. ### What are the differences between WeakSet and Set
+205. ### What are the differences between WeakSet and Set
 
      The main difference is that references to objects in Set are strong while references to objects in WeakSet are weak. i.e, An object in WeakSet can be garbage collected if there is no other reference to it.
      Other differences are,
@@ -3962,7 +3980,7 @@
 
      **[⬆ Back to Top](#table-of-contents)**
 
-205. ### List down the collection of methods available on WeakSet
+206. ### List down the collection of methods available on WeakSet
 
      Below are the list of methods available on WeakSet,
 
@@ -3985,7 +4003,7 @@
 
      **[⬆ Back to Top](#table-of-contents)**
 
-206. ### What is a WeakMap
+207. ### What is a WeakMap
 
      The WeakMap object is a collection of key/value pairs in which the keys are weakly referenced. In this case, keys must be objects and the values can be arbitrary values. The syntax looks like the following:
 
@@ -4006,7 +4024,7 @@
 
      **[⬆ Back to Top](#table-of-contents)**
 
-207. ### What are the differences between WeakMap and Map
+208. ### What are the differences between WeakMap and Map
 
      The main difference is that references to key objects in Map are strong while references to key objects in WeakMap are weak. i.e, A key object in WeakMap can be garbage collected if there is no other reference to it.
      Other differences are,
@@ -4018,7 +4036,7 @@
 
      **[⬆ Back to Top](#table-of-contents)**
 
-208. ### List down the collection of methods available on WeakMap
+209. ### List down the collection of methods available on WeakMap
 
      Below are the list of methods available on WeakMap,
 
@@ -4042,7 +4060,7 @@
 
      **[⬆ Back to Top](#table-of-contents)**
 
-209. ### What is the purpose of uneval
+210. ### What is the purpose of uneval
 
      The uneval() is an inbuilt function which is used to create a string representation of the source code of an Object. It is a top-level function and is not associated with any object. Let's see the below example to know more about it's functionality,
 
@@ -4061,7 +4079,7 @@
 
      **[⬆ Back to Top](#table-of-contents)**
 
-210. ### How do you encode an URL
+211. ### How do you encode an URL
 
      The encodeURI() function is used to encode complete URI which has special characters except (, / ? : @ & = + $ #) characters.
 
@@ -4073,7 +4091,7 @@
 
      **[⬆ Back to Top](#table-of-contents)**
 
-211. ### How do you decode an URL
+212. ### How do you decode an URL
 
      The decodeURI() function is used to decode a Uniform Resource Identifier (URI) previously created by encodeURI().
 
@@ -4091,7 +4109,7 @@
 
      **[⬆ Back to Top](#table-of-contents)**
 
-212. ### How do you print the contents of web page
+213. ### How do you print the contents of web page
 
      The window object provided a print() method which is used to print the contents of the current window. It opens a Print dialog box which lets you choose between various printing options. Let's see the usage of print method in an example,
 
@@ -4103,7 +4121,7 @@
 
      **[⬆ Back to Top](#table-of-contents)**
 
-213. ### What is the difference between uneval and eval
+214. ### What is the difference between uneval and eval
 
      The `uneval` function returns the source of a given object; whereas the `eval` function does the opposite, by evaluating that source code in a different memory area. Let's see an example to clarify the difference,
 
@@ -4117,7 +4135,7 @@
 
      **[⬆ Back to Top](#table-of-contents)**
 
-214. ### What is an anonymous function
+215. ### What is an anonymous function
 
      An anonymous function is a function without a name! Anonymous functions are commonly assigned to a variable name or used as a callback function. The syntax would be as below,
 
@@ -4147,7 +4165,7 @@
 
      **[⬆ Back to Top](#table-of-contents)**
 
-215. ### What is the precedence order between local and global variables
+216. ### What is the precedence order between local and global variables
 
      A local variable takes precedence over a global variable with the same name. Let's see this behavior in an example.
 
@@ -4162,7 +4180,7 @@
 
      **[⬆ Back to Top](#table-of-contents)**
 
-216. ### What are javascript accessors
+217. ### What are javascript accessors
 
      ECMAScript 5 introduced javascript object accessors or computed properties through getters and setters. Getters uses the `get` keyword whereas Setters uses the `set` keyword.
 
@@ -4185,7 +4203,7 @@
 
      **[⬆ Back to Top](#table-of-contents)**
 
-217. ### How do you define property on Object constructor
+218. ### How do you define property on Object constructor
 
      The Object.defineProperty() static method is used to define a new property directly on an object, or modify an existing property on an object, and returns the object. Let's see an example to know how to define property,
 
@@ -4204,13 +4222,13 @@
 
      **[⬆ Back to Top](#table-of-contents)**
 
-218. ### What is the difference between get and defineProperty
+219. ### What is the difference between get and defineProperty
 
      Both have similar results unless you use classes. If you use `get` the property will be defined on the prototype of the object whereas using `Object.defineProperty()` the property will be defined on the instance it is applied to.
 
      **[⬆ Back to Top](#table-of-contents)**
 
-219. ### What are the advantages of Getters and Setters
+220. ### What are the advantages of Getters and Setters
 
      Below are the list of benefits of Getters and Setters,
 
@@ -4222,7 +4240,7 @@
 
      **[⬆ Back to Top](#table-of-contents)**
 
-220. ### Can I add getters and setters using defineProperty method
+221. ### Can I add getters and setters using defineProperty method
 
      Yes, You can use the `Object.defineProperty()` method to add Getters and Setters. For example, the below counter object uses increment, decrement, add and subtract properties,
 
@@ -4263,7 +4281,7 @@
 
      **[⬆ Back to Top](#table-of-contents)**
 
-221. ### What is the purpose of switch-case
+222. ### What is the purpose of switch-case
 
      The switch case statement in JavaScript is used for decision making purposes. In a few cases, using the switch case statement is going to be more convenient than if-else statements. The syntax would be as below,
 
@@ -4290,7 +4308,7 @@
 
      **[⬆ Back to Top](#table-of-contents)**
 
-222. ### What are the conventions to be followed for the usage of switch case
+223. ### What are the conventions to be followed for the usage of switch case
 
      Below are the list of conventions should be taken care,
 
@@ -4302,7 +4320,7 @@
 
      **[⬆ Back to Top](#table-of-contents)**
 
-223. ### What are primitive data types
+224. ### What are primitive data types
 
      A primitive data type is data that has a primitive value (which has no properties or methods). There are 7 types of primitive data types.
 
@@ -4316,7 +4334,7 @@
 
      **[⬆ Back to Top](#table-of-contents)**
 
-224. ### What are the different ways to access object properties
+225. ### What are the different ways to access object properties
 
      There are 3 possible ways for accessing the property of an object.
 
@@ -4340,7 +4358,7 @@
 
      **[⬆ Back to Top](#table-of-contents)**
 
-225. ### What are the function parameter rules
+226. ### What are the function parameter rules
 
      JavaScript functions follow below rules for parameters,
 
@@ -4358,7 +4376,7 @@
 
      **[⬆ Back to Top](#table-of-contents)**
 
-226. ### What is an error object
+227. ### What is an error object
 
      An error object is a built in error object that provides error information when an error occurs. It has two properties: name and message. For example, the below function logs error details,
 
@@ -4372,7 +4390,7 @@
 
      **[⬆ Back to Top](#table-of-contents)**
 
-227. ### When you get a syntax error
+228. ### When you get a syntax error
 
      A SyntaxError is thrown if you try to evaluate code with a syntax error. For example, the below missing quote for the function parameter throws a syntax error
 
@@ -4386,7 +4404,7 @@
 
      **[⬆ Back to Top](#table-of-contents)**
 
-228. ### What are the different error names from error object
+229. ### What are the different error names from error object
 
      There are 7 different types of error names returned from error object,
      | Error Name | Description |
@@ -4401,7 +4419,7 @@
 
      **[⬆ Back to Top](#table-of-contents)**
 
-229. ### What are the various statements in error handling
+230. ### What are the various statements in error handling
 
      Below are the list of statements used in an error handling,
 
@@ -4412,26 +4430,26 @@
 
      **[⬆ Back to Top](#table-of-contents)**
 
-230. ### What are the two types of loops in javascript
+231. ### What are the two types of loops in javascript
 
      1. **Entry Controlled loops:** In this kind of loop type, the test condition is tested before entering the loop body. For example, For Loop and While Loop comes under this category.
      2. **Exit Controlled Loops:** In this kind of loop type, the test condition is tested or evaluated at the end of the loop body. i.e, the loop body will execute at least once irrespective of test condition true or false. For example, do-while loop comes under this category.
 
      **[⬆ Back to Top](#table-of-contents)**
 
-231. ### What is nodejs
+232. ### What is nodejs
 
      Node.js is a server-side platform built on Chrome's JavaScript runtime for easily building fast and scalable network applications. It is an event-based, non-blocking, asynchronous I/O runtime that uses Google's V8 JavaScript engine and libuv library.
 
      **[⬆ Back to Top](#table-of-contents)**
 
-232. ### What is an Intl object
+233. ### What is an Intl object
 
      The Intl object is the namespace for the ECMAScript Internationalization API, which provides language sensitive string comparison, number formatting, and date and time formatting. It provides access to several constructors and language sensitive functions.
 
      **[⬆ Back to Top](#table-of-contents)**
 
-233. ### How do you perform language specific date and time formatting
+234. ### How do you perform language specific date and time formatting
 
      You can use the `Intl.DateTimeFormat` object which is a constructor for objects that enable language-sensitive date and time formatting. Let's see this behavior with an example,
 
@@ -4443,13 +4461,13 @@
 
      **[⬆ Back to Top](#table-of-contents)**
 
-234. ### What is an Iterator
+235. ### What is an Iterator
 
      An iterator is an object which defines a sequence and a return value upon its termination. It implements the Iterator protocol with a `next()` method which returns an object with two properties: `value` (the next value in the sequence) and `done` (which is true if the last value in the sequence has been consumed).
 
      **[⬆ Back to Top](#table-of-contents)**
 
-235. ### How does synchronous iteration works
+236. ### How does synchronous iteration works
 
      Synchronous iteration was introduced in ES6 and it works with below set of components,
 
@@ -4472,7 +4490,7 @@
 
      **[⬆ Back to Top](#table-of-contents)**
 
-236. ### What is an event loop
+237. ### What is an event loop
 
      The event loop is a process that continuously monitors both the call stack and the event queue and checks whether or not the call stack is empty. If the call stack is empty and there are pending events in the event queue, the event loop dequeues the event from the event queue and pushes it to the call stack. The call stack executes the event, and any additional events generated during the execution are added to the end of the event queue.
 
@@ -4480,7 +4498,7 @@
 
      **[⬆ Back to Top](#table-of-contents)**
 
-237. ### What is call stack
+238. ### What is call stack
 
      Call Stack is a data structure for javascript interpreters to keep track of function calls(creates execution context) in the program. It has two major actions,
 
@@ -4512,7 +4530,7 @@
 
      **[⬆ Back to Top](#table-of-contents)**
 
-238. ### What is an event queue
+239. ### What is an event queue
 
      The event queue follows the queue data structure. It stores async callbacks to be added to the call stack. It is also known as the Callback Queue or Macrotask Queue.
 
@@ -4522,7 +4540,7 @@
 
      **[⬆ Back to Top](#table-of-contents)**
 
-239. ### What is a decorator
+240. ### What is a decorator
 
      A decorator is an expression that evaluates to a function and that takes the target, name, and decorator descriptor as arguments. Also, it optionally returns a decorator descriptor to install on the target object. Let's define admin decorator for user class at design time,
 
@@ -4546,7 +4564,7 @@
 
      **[⬆ Back to Top](#table-of-contents)**
 
-240. ### What are the properties of Intl object
+241. ### What are the properties of Intl object
 
      Below are the list of properties available on Intl object,
 
@@ -4559,7 +4577,7 @@
 
      **[⬆ Back to Top](#table-of-contents)**
 
-241. ### What is an Unary operator
+242. ### What is an Unary operator
 
      The unary(+) operator is used to convert a variable to a number.If the variable cannot be converted, it will still become a number but with the value NaN. Let's see this behavior in an action.
 
@@ -4575,7 +4593,7 @@
 
      **[⬆ Back to Top](#table-of-contents)**
 
-242. ### How do you sort elements in an array
+243. ### How do you sort elements in an array
 
      The sort() method is used to sort the elements of an array in place and returns the sorted array. The default sort order is ascending, based on the string Unicode order. The example usage would be as below,
 
@@ -4587,7 +4605,7 @@
 
      **[⬆ Back to Top](#table-of-contents)**
 
-243. ### What is the purpose of compareFunction while sorting arrays
+244. ### What is the purpose of compareFunction while sorting arrays
 
      The compareFunction is used to define the sort order. If omitted, the array elements are converted to strings, then sorted according to each character's Unicode code point value. 
      
@@ -4601,7 +4619,7 @@
 
      **[⬆ Back to Top](#table-of-contents)**
 
-244. ### How do you reversing an array
+245. ### How do you reversing an array
 
      You can use the reverse() method to reverse the elements in an array. This method is useful to sort an array in descending order. Let's see the usage of reverse() method in an example,
 
@@ -4614,7 +4632,7 @@
 
      **[⬆ Back to Top](#table-of-contents)**
 
-245. ### How do you find min and max value in an array
+246. ### How do you find min and max value in an array
 
      You can use `Math.min` and `Math.max` methods on array variables to find the minimum and maximum elements within an array. Let's create two functions to find the min and max value with in an array,
 
@@ -4633,7 +4651,7 @@
 
      **[⬆ Back to Top](#table-of-contents)**
 
-246. ### How do you find min and max values without Math functions
+247. ### How do you find min and max values without Math functions
 
      You can write functions which loop through an array comparing each value with the lowest value or highest value to find the min and max values. Let's create those functions to find min and max values,
 
@@ -4667,7 +4685,7 @@
 
      **[⬆ Back to Top](#table-of-contents)**
 
-247. ### What is an empty statement and purpose of it
+248. ### What is an empty statement and purpose of it
 
      The empty statement is a semicolon (;) indicating that no statement will be executed, even if JavaScript syntax requires one. Since there is no action with an empty statement you might think that it's usage is quite less, but the empty statement is occasionally useful when you want to create a loop that has an empty body. For example, you can initialize an array with zero values as below,
 
@@ -4678,7 +4696,7 @@
 
      **[⬆ Back to Top](#table-of-contents)**
 
-248. ### How do you get metadata of a module
+249. ### How do you get metadata of a module
 
      You can use the `import.meta` object which is a meta-property exposing context-specific meta data to a JavaScript module. It contains information about the current module, such as the module's URL. In browsers, you might get different meta data than NodeJS.
 
@@ -4689,7 +4707,7 @@
 
      **[⬆ Back to Top](#table-of-contents)**
 
-249. ### What is a comma operator
+250. ### What is a comma operator
 
      The comma operator is used to evaluate each of its operands from left to right and returns the value of the last operand. This is totally different from comma usage within arrays, objects, and function arguments and parameters. For example, the usage for numeric expressions would be as below,
 
@@ -4702,7 +4720,7 @@
 
      **[⬆ Back to Top](#table-of-contents)**
 
-250. ### What is the advantage of a comma operator
+251. ### What is the advantage of a comma operator
 
      It is normally used to include multiple expressions in a location that requires a single expression. One of the common usages of this comma operator is to supply multiple parameters in a `for` loop. For example, the below for loop uses multiple expressions in a single location using comma operator,
 
@@ -4721,7 +4739,7 @@
 
      **[⬆ Back to Top](#table-of-contents)**
 
-251. ### What is typescript
+252. ### What is typescript
 
      TypeScript is a typed superset of JavaScript created by Microsoft that adds optional types, classes, async/await, and many other features, and compiles to plain JavaScript. Angular is built entirely in TypeScript and is used as the primary language. You can install it globally as
 
@@ -4745,7 +4763,7 @@
 
      **[⬆ Back to Top](#table-of-contents)**
 
-252. ### What are the differences between javascript and typescript
+253. ### What are the differences between javascript and typescript
 
      Below are the list of differences between javascript and typescript,
 
@@ -4759,7 +4777,7 @@
 
      **[⬆ Back to Top](#table-of-contents)**
 
-253. ### What are the advantages of typescript over javascript
+254. ### What are the advantages of typescript over javascript
 
      Below are some of the advantages of typescript over javascript,
 
@@ -4769,7 +4787,7 @@
 
      **[⬆ Back to Top](#table-of-contents)**
 
-254. ### What is an object initializer
+255. ### What is an object initializer
 
      An object initializer is an expression that describes the initialization of an Object. The syntax for this expression is represented as a comma-delimited list of zero or more pairs of property names and associated values of an object, enclosed in curly braces ({}). This is also known as literal notation. It is one of the ways to create an object.
 
@@ -4781,7 +4799,7 @@
 
      **[⬆ Back to Top](#table-of-contents)**
 
-255. ### What is a constructor method
+256. ### What is a constructor method
 
      The constructor method is a special method for creating and initializing an object created within a class. If you do not specify a constructor method, a default constructor is used. The example usage of constructor would be as below,
 
@@ -4799,7 +4817,7 @@
 
      **[⬆ Back to Top](#table-of-contents)**
 
-256. ### What happens if you write constructor more than once in a class
+257. ### What happens if you write constructor more than once in a class
 
      The "constructor" in a class is a special method and it should be defined only once in a class. i.e, If you write a constructor method more than once in a class it will throw a `SyntaxError` error.
 
@@ -4820,7 +4838,7 @@
 
      **[⬆ Back to Top](#table-of-contents)**
 
-257. ### How do you call the constructor of a parent class
+258. ### How do you call the constructor of a parent class
 
      You can use the `super` keyword to call the constructor of a parent class. Remember that `super()` must be called before using 'this' reference. Otherwise it will cause a reference error. Let's the usage of it,
 
@@ -4843,7 +4861,7 @@
 
      **[⬆ Back to Top](#table-of-contents)**
 
-258. ### How do you get the prototype of an object
+259. ### How do you get the prototype of an object
 
      You can use the `Object.getPrototypeOf(obj)` method to return the prototype of the specified object. i.e. The value of the internal `prototype` property. If there are no inherited properties then `null` value is returned.
 
@@ -4856,7 +4874,7 @@
 
      **[⬆ Back to Top](#table-of-contents)**
 
-259. ### What happens If I pass string type for getPrototype method
+260. ### What happens If I pass string type for getPrototype method
 
      In ES5, it will throw a TypeError exception if the obj parameter isn't an object. Whereas in ES2015, the parameter will be coerced to an `Object`.
 
@@ -4869,7 +4887,7 @@
 
      **[⬆ Back to Top](#table-of-contents)**
 
-260. ### How do you set prototype of one object to another
+261. ### How do you set prototype of one object to another
 
      You can use the `Object.setPrototypeOf()` method that sets the prototype (i.e., the internal `Prototype` property) of a specified object to another object or null. For example, if you want to set prototype of a square object to rectangle object would be as follows,
 
@@ -4880,7 +4898,7 @@
 
      **[⬆ Back to Top](#table-of-contents)**
 
-261. ### How do you check whether an object can be extendable or not
+262. ### How do you check whether an object can be extendable or not
 
      The `Object.isExtensible()` method is used to determine if an object is extendable or not. i.e, Whether it can have new properties added to it or not.
 
@@ -4893,7 +4911,7 @@
 
      **[⬆ Back to Top](#table-of-contents)**
 
-262. ### How do you prevent an object to extend
+263. ### How do you prevent an object to extend
 
      The `Object.preventExtensions()` method is used to prevent new properties from ever being added to an object. In other words, it prevents future extensions to the object. Let's see the usage of this property,
 
@@ -4913,7 +4931,7 @@
 
      **[⬆ Back to Top](#table-of-contents)**
 
-263. ### What are the different ways to make an object non-extensible
+264. ### What are the different ways to make an object non-extensible
 
      You can mark an object non-extensible in 3 ways,
 
@@ -4936,7 +4954,7 @@
 
      **[⬆ Back to Top](#table-of-contents)**
 
-264. ### How do you define multiple properties on an object
+265. ### How do you define multiple properties on an object
 
      The `Object.defineProperties()` method is used to define new or modify existing properties directly on an object and returning the object. Let's define multiple properties on an empty object,
 
@@ -4954,13 +4972,13 @@
 
      **[⬆ Back to Top](#table-of-contents)**
 
-265. ### What is MEAN in javascript
+266. ### What is MEAN in javascript
 
      The MEAN (MongoDB, Express, AngularJS, and Node.js) stack is the most popular open-source JavaScript software tech stack available for building dynamic web apps where you can write both the server-side and client-side halves of the web project entirely in JavaScript.
 
      **[⬆ Back to Top](#table-of-contents)**
 
-266. ### What Is Obfuscation in javascript
+267. ### What Is Obfuscation in javascript
 
      Obfuscation is the deliberate act of creating obfuscated javascript code(i.e, source or machine code) that is difficult for humans to understand. It is something similar to encryption, but a machine can understand the code and execute it.
      Let's see the below function before Obfuscation,
@@ -5012,7 +5030,7 @@
 
      **[⬆ Back to Top](#table-of-contents)**
 
-267. ### Why do you need Obfuscation
+268. ### Why do you need Obfuscation
 
      Below are the few reasons for Obfuscation,
 
@@ -5023,13 +5041,13 @@
 
      **[⬆ Back to Top](#table-of-contents)**
 
-268. ### What is Minification
+269. ### What is Minification
 
      Minification is the process of removing all unnecessary characters(empty spaces are removed) and variables will be renamed without changing it's functionality. It is also a type of obfuscation .
 
      **[⬆ Back to Top](#table-of-contents)**
 
-269. ### What are the advantages of minification
+270. ### What are the advantages of minification
 
      Normally it is recommended to use minification for heavy traffic and intensive requirements of resources. It reduces file sizes with below benefits,
 
@@ -5038,7 +5056,7 @@
 
      **[⬆ Back to Top](#table-of-contents)**
 
-270. ### What are the differences between Obfuscation and Encryption
+271. ### What are the differences between Obfuscation and Encryption
 
      Below are the main differences between Obfuscation and Encryption,
 
@@ -5050,7 +5068,7 @@
 
      **[⬆ Back to Top](#table-of-contents)**
 
-271. ### What are the common tools used for minification
+272. ### What are the common tools used for minification
 
      There are many online/offline tools to minify the javascript files,
 
@@ -5062,7 +5080,7 @@
 
      **[⬆ Back to Top](#table-of-contents)**
 
-272. ### How do you perform form validation using javascript
+273. ### How do you perform form validation using javascript
 
      JavaScript can be used to perform HTML form validation. For example, if the form field is empty, the function needs to notify, and return false, to prevent the form being submitted.
      Lets' perform user login in an html form,
@@ -5088,7 +5106,7 @@
 
      **[⬆ Back to Top](#table-of-contents)**
 
-273. ### How do you perform form validation without javascript
+274. ### How do you perform form validation without javascript
 
      You can perform HTML form validation automatically without using javascript. The validation enabled by applying the `required` attribute to prevent form submission when the input is empty.
 
@@ -5103,7 +5121,7 @@
 
      **[⬆ Back to Top](#table-of-contents)**
 
-274. ### What are the DOM methods available for constraint validation
+275. ### What are the DOM methods available for constraint validation
 
      The below DOM methods are available for constraint validation on an invalid input,
 
@@ -5126,7 +5144,7 @@
 
      **[⬆ Back to Top](#table-of-contents)**
 
-275. ### What are the available constraint validation DOM properties
+276. ### What are the available constraint validation DOM properties
 
      Below are the list of some of the constraint validation DOM properties available,
 
@@ -5136,7 +5154,7 @@
 
      **[⬆ Back to Top](#table-of-contents)**
 
-276. ### What are the list of validity properties
+277. ### What are the list of validity properties
 
      The validity property of an input element provides a set of properties related to the validity of data.
 
@@ -5152,7 +5170,7 @@
 
      **[⬆ Back to Top](#table-of-contents)**
 
-277. ### Give an example usage of rangeOverflow property
+278. ### Give an example usage of rangeOverflow property
 
      If an element's value is greater than its max attribute then rangeOverflow property returns true. For example, the below form submission throws an error if the value is more than 100,
 
@@ -5171,7 +5189,7 @@
 
      **[⬆ Back to Top](#table-of-contents)**
 
-278. ### Is enums feature available in javascript
+279. ### Is enums feature available in javascript
 
      No, javascript does not natively support enums. But there are different kinds of solutions to simulate them even though they may not provide exact equivalents. For example, you can use freeze or seal on object,
 
@@ -5181,7 +5199,7 @@
 
      **[⬆ Back to Top](#table-of-contents)**
 
-279. ### What is an enum
+280. ### What is an enum
 
      An enum is a type restricting variables to one value from a predefined set of constants. JavaScript has no enums but typescript provides built-in enum support.
 
@@ -5193,7 +5211,7 @@
 
      **[⬆ Back to Top](#table-of-contents)**
 
-280. ### How do you list all properties of an object
+281. ### How do you list all properties of an object
 
      You can use the `Object.getOwnPropertyNames()` method which returns an array of all properties found directly in a given object. Let's see the usage of this in an example below:
 
@@ -5210,7 +5228,7 @@
 
      **[⬆ Back to Top](#table-of-contents)**
 
-281. ### How do you get property descriptors of an object
+282. ### How do you get property descriptors of an object
 
      You can use the `Object.getOwnPropertyDescriptors()` method which returns all own property descriptors of a given object. The example usage of this method is below,
 
@@ -5229,7 +5247,7 @@
 
      **[⬆ Back to Top](#table-of-contents)**
 
-282. ### What are the attributes provided by a property descriptor
+283. ### What are the attributes provided by a property descriptor
 
      A property descriptor is a record which has the following attributes
 
@@ -5242,7 +5260,7 @@
 
      **[⬆ Back to Top](#table-of-contents)**
 
-283. ### How do you extend classes
+284. ### How do you extend classes
 
      The `extends` keyword is used in class declarations/expressions to create a class which is a child of another class. It can be used to subclass custom classes as well as built-in objects. The syntax would be as below,
 
@@ -5271,7 +5289,7 @@
 
      **[⬆ Back to Top](#table-of-contents)**
 
-284. ### How do I modify the url without reloading the page
+285. ### How do I modify the url without reloading the page
 
      The `window.location.href` property will be helpful to modify the url but it reloads the page. HTML5 introduced the `history.pushState()` and `history.replaceState()` methods, which allow you to add and modify history entries, respectively. For example, you can use pushState as below,
 
@@ -5281,7 +5299,7 @@
 
      **[⬆ Back to Top](#table-of-contents)**
 
-285. ### How do you check whether an array includes a particular value or not
+286. ### How do you check whether an array includes a particular value or not
 
      The `Array#includes()` method is used to determine whether an array includes a particular value among its entries by returning either true or false. Let's see an example to find an element(numeric and string) within an array.
 
@@ -5295,7 +5313,7 @@
 
      **[⬆ Back to Top](#table-of-contents)**
 
-286. ### How do you compare scalar arrays
+287. ### How do you compare scalar arrays
 
      You can use length and every method of arrays to compare two scalar(compared directly using ===) arrays. The combination of these expressions can give the expected result,
 
@@ -5321,7 +5339,7 @@
 
      **[⬆ Back to Top](#table-of-contents)**
 
-287. ### How to get the value from get parameters
+288. ### How to get the value from get parameters
 
      The `new URL()` object accepts the url string and `searchParams` property of this object can be used to access the get parameters. Remember that you may need to use polyfill or `window.location` to access the URL in older browsers(including IE).
 
@@ -5334,7 +5352,7 @@
 
      **[⬆ Back to Top](#table-of-contents)**
 
-288. ### How do you print numbers with commas as thousand separators
+289. ### How do you print numbers with commas as thousand separators
 
      You can use the `Number.prototype.toLocaleString()` method which returns a string with a language-sensitive representation such as thousand separator,currency etc of this number.
 
@@ -5348,7 +5366,7 @@
 
      **[⬆ Back to Top](#table-of-contents)**
 
-289. ### What is the difference between java and javascript
+290. ### What is the difference between java and javascript
 
      Both are totally unrelated programming languages and no relation between them. Java is statically typed, compiled, runs on its own VM. Whereas Javascript is dynamically typed, interpreted, and runs in a browser and nodejs environments. Let's see the major differences in a tabular format,
      | Feature | Java | JavaScript |
@@ -5361,7 +5379,7 @@
 
      **[⬆ Back to Top](#table-of-contents)**
 
-290. ### Does JavaScript supports namespace
+291. ### Does JavaScript supports namespace
 
      JavaScript doesn’t support namespace by default. So if you create any element(function, method, object, variable) then it becomes global and pollutes the global namespace. Let's take an example of defining two functions without any namespace,
 
@@ -5379,7 +5397,7 @@
 
      **[⬆ Back to Top](#table-of-contents)**
 
-291. ### How do you declare namespace
+292. ### How do you declare namespace
 
      Even though JavaScript lacks namespaces, we can use Objects , IIFE to create namespaces.
 
@@ -5440,7 +5458,7 @@
 
      **[⬆ Back to Top](#table-of-contents)**
 
-292. ### How do you invoke javascript code in an iframe from parent page
+293. ### How do you invoke javascript code in an iframe from parent page
 
      Initially iFrame needs to be accessed using either `document.getElementBy` or `window.frames`. After that `contentWindow` property of iFrame gives the access for targetFunction
 
@@ -5451,7 +5469,7 @@
 
      **[⬆ Back to Top](#table-of-contents)**
 
-293. ### How do get the timezone offset from date
+294. ### How do get the timezone offset from date
 
      You can use the `getTimezoneOffset` method of the date object. This method returns the time zone difference, in minutes, from current locale (host system settings) to UTC
 
@@ -5462,7 +5480,7 @@
 
      **[⬆ Back to Top](#table-of-contents)**
 
-294. ### How do you load CSS and JS files dynamically
+295. ### How do you load CSS and JS files dynamically
 
      You can create both link and script elements in the DOM and append them as child to head tag. Let's create a function to add script and style resources as below,
 
@@ -5487,7 +5505,7 @@
 
      **[⬆ Back to Top](#table-of-contents)**
 
-295. ### What are the different methods to find HTML elements in DOM
+296. ### What are the different methods to find HTML elements in DOM
 
      If you want to access any element in an HTML page, you need to start with accessing the document object. Later you can use any of the below methods to find the HTML element,
 
@@ -5497,7 +5515,7 @@
 
      **[⬆ Back to Top](#table-of-contents)**
 
-296. ### What is jQuery
+297. ### What is jQuery
 
      jQuery is a popular cross-browser JavaScript library that provides Document Object Model (DOM) traversal, event handling, animations and AJAX interactions by minimizing the discrepancies across browsers. It is widely famous with its philosophy of “Write less, do more”. For example, you can display welcome message on the page load using jQuery as below,
 
@@ -5512,14 +5530,14 @@
 
      **[⬆ Back to Top](#table-of-contents)**
 
-297. ### What is V8 JavaScript engine
+298. ### What is V8 JavaScript engine
 
      V8 is an open source high-performance JavaScript engine used by the Google Chrome browser, written in C++. It is also being used in the node.js project. It implements ECMAScript and WebAssembly, and runs on Windows 7 or later, macOS 10.12+, and Linux systems that use x64, IA-32, ARM, or MIPS processors.
      **Note:** It can run standalone, or can be embedded into any C++ application.
 
      **[⬆ Back to Top](#table-of-contents)**
 
-298. ### Why do we call javascript as dynamic language
+299. ### Why do we call javascript as dynamic language
 
      JavaScript is a loosely typed or a dynamic language because variables in JavaScript are not directly associated with any particular value type, and any variable can be assigned/reassigned with values of all types.
 
@@ -5531,7 +5549,7 @@
 
      **[⬆ Back to Top](#table-of-contents)**
 
-299. ### What is a void operator
+300. ### What is a void operator
 
      The `void` operator evaluates the given expression and then returns undefined(i.e, without returning value). The syntax would be as below,
 
@@ -5552,7 +5570,7 @@
 
      **[⬆ Back to Top](#table-of-contents)**
 
-300. ### How to set the cursor to wait
+301. ### How to set the cursor to wait
 
      The cursor can be set to wait in JavaScript by using the property "cursor". Let's perform this behavior on page load using the below function.
 
@@ -5570,7 +5588,7 @@
 
      **[⬆ Back to Top](#table-of-contents)**
 
-301. ### How do you create an infinite loop
+302. ### How do you create an infinite loop
 
      You can create infinite loops using for and while loops without using any expressions. The for loop construct or syntax is better approach in terms of ESLint and code optimizer tools,
 
@@ -5581,7 +5599,7 @@
 
      **[⬆ Back to Top](#table-of-contents)**
 
-302. ### Why do you need to avoid with statement
+303. ### Why do you need to avoid with statement
 
      JavaScript's with statement was intended to provide a shorthand for writing recurring accesses to objects. So it can help reduce file size by reducing the need to repeat a lengthy object reference without performance penalty. Let's take an example where it is used to avoid redundancy when accessing an object several times.
 
@@ -5603,7 +5621,7 @@
 
      **[⬆ Back to Top](#table-of-contents)**
 
-303. ### What is the output of the following for loops
+304. ### What is the output of the following for loops
 
      ```javascript
      for (var i = 0; i < 4; i++) {
@@ -5625,7 +5643,7 @@
 
      **[⬆ Back to Top](#table-of-contents)**
 
-304. ### List down some of the features of ES6
+305. ### List down some of the features of ES6
 
      Below are the list of some new features of ES6,
 
@@ -5644,13 +5662,13 @@
 
      **[⬆ Back to Top](#table-of-contents)**
 
-305. ### What is ES6
+306. ### What is ES6
 
      ES6 is the sixth edition of the javascript language and it was released in June 2015. It was initially known as ECMAScript 6 (ES6) and later renamed to ECMAScript 2015. Almost all the modern browsers support ES6 but for the old browsers there are many transpilers, like Babel.js etc.
 
      **[⬆ Back to Top](#table-of-contents)**
 
-306. ### Can I redeclare let and const variables
+307. ### Can I redeclare let and const variables
 
      No, you cannot redeclare let and const variables. If you do, it throws below error
 
@@ -5687,7 +5705,7 @@
 
      **[⬆ Back to Top](#table-of-contents)**
 
-307. ### Does the `const` variable make the value immutable
+308. ### Does the `const` variable make the value immutable
 
      No, the `const` variable doesn't make the value immutable. But it disallows subsequent assignments(i.e, You can declare with assignment but can't assign another value later)
 
@@ -5699,7 +5717,7 @@
 
      **[⬆ Back to Top](#table-of-contents)**
 
-308. ### What are default parameters
+309. ### What are default parameters
 
      In ES5, we need to depend on logical OR operators to handle default values of function parameters. Whereas in ES6, Default function parameters feature allows parameters to be initialized with default values if no value or undefined is passed. Let's compare the behavior with an examples,
 
@@ -5727,7 +5745,7 @@
 
      **[⬆ Back to Top](#table-of-contents)**
 
-309. ### What are template literals
+310. ### What are template literals
 
      Template literals or template strings are string literals allowing embedded expressions. These are enclosed by the back-tick (`) character instead of double or single quotes.
      In ES6, this feature enables using dynamic expressions as below,
@@ -5746,7 +5764,7 @@
 
      **[⬆ Back to Top](#table-of-contents)**
 
-310. ### How do you write multi-line strings in template literals
+311. ### How do you write multi-line strings in template literals
 
      In ES5, you would have to use newline escape characters('\\n') and concatenation symbols(+) in order to get multi-line strings.
 
@@ -5763,7 +5781,7 @@
 
      **[⬆ Back to Top](#table-of-contents)**
 
-311. ### What are nesting templates
+312. ### What are nesting templates
 
      The nesting template is a feature supported within template literals syntax to allow inner backticks inside a placeholder ${ } within the template. For example, the below nesting template is used to display the icons based on user permissions whereas outer template checks for platform type,
 
@@ -5790,7 +5808,7 @@
 
      **[⬆ Back to Top](#table-of-contents)**
 
-312. ### What are tagged templates
+313. ### What are tagged templates
 
      Tagged templates are the advanced form of templates in which tags allow you to parse template literals with a function. The tag function accepts the first parameter as an array of strings and remaining parameters as expressions. This function can also return manipulated strings based on parameters. Let's see the usage of this tagged template behavior of an IT professional skill set in an organization,
 
@@ -5829,7 +5847,7 @@
 
      **[⬆ Back to Top](#table-of-contents)**
 
-313. ### What are raw strings
+314. ### What are raw strings
 
      ES6 provides a raw strings feature using the `String.raw()` method which is used to get the raw string form of template strings. This feature allows you to access the raw strings as they were entered, without processing escape sequences. For example, the usage would be as below,
 
@@ -5859,7 +5877,7 @@
 
      **[⬆ Back to Top](#table-of-contents)**
 
-314. ### What is destructuring assignment
+315. ### What is destructuring assignment
 
      The destructuring assignment is a JavaScript expression that makes it possible to unpack values from arrays or properties from objects into distinct variables.
      Let's get the month values from an array using destructuring assignment
@@ -5883,7 +5901,7 @@
 
      **[⬆ Back to Top](#table-of-contents)**
 
-315. ### What are default values in destructuring assignment
+316. ### What are default values in destructuring assignment
 
      A variable can be assigned a default value when the value unpacked from the array or object is undefined during destructuring assignment. It helps to avoid setting default values separately for each assignment. Let's take an example for both arrays and object use cases,
 
@@ -5910,7 +5928,7 @@
 
      **[⬆ Back to Top](#table-of-contents)**
 
-316. ### How do you swap variables in destructuring assignment
+317. ### How do you swap variables in destructuring assignment
 
      If you don't use destructuring assignment, swapping two values requires a temporary variable. Whereas using a destructuring feature, two variable values can be swapped in one destructuring expression. Let's swap two number variables in array destructuring assignment,
 
@@ -5925,7 +5943,7 @@
 
      **[⬆ Back to Top](#table-of-contents)**
 
-317. ### What are enhanced object literals
+318. ### What are enhanced object literals
 
      Object literals make it easy to quickly create objects with properties inside the curly braces. For example, it provides shorter syntax for common object property definition as below.
 
@@ -5944,7 +5962,7 @@
 
      **[⬆ Back to Top](#table-of-contents)**
 
-318. ### What are dynamic imports
+319. ### What are dynamic imports
 
      The dynamic imports using `import()` function syntax allows us to load modules on demand by using promises or the async/await syntax. Currently this feature is in [stage4 proposal](https://github.com/tc39/proposal-dynamic-import). The main advantage of dynamic imports is reduction of our bundle's sizes, the size/payload response of our requests and overall improvements in the user experience.
      The syntax of dynamic imports would be as below,
@@ -5955,7 +5973,7 @@
 
      **[⬆ Back to Top](#table-of-contents)**
 
-319. ### What are the use cases for dynamic imports
+320. ### What are the use cases for dynamic imports
 
      Below are some of the use cases of using dynamic imports over static imports,
 
@@ -5978,7 +5996,7 @@
 
      **[⬆ Back to Top](#table-of-contents)**
 
-320. ### What are typed arrays
+321. ### What are typed arrays
 
      Typed arrays are array-like objects from ECMAScript 6 API for handling binary data. JavaScript provides 12 Typed array types,
 
@@ -6006,7 +6024,7 @@
 
      **[⬆ Back to Top](#table-of-contents)**
 
-321. ### What are the advantages of module loaders
+322. ### What are the advantages of module loaders
 
      The module loaders provides the below features,
 
@@ -6018,7 +6036,7 @@
 
      **[⬆ Back to Top](#table-of-contents)**
 
-322. ### What is collation
+323. ### What is collation
 
      Collation is used for sorting a set of strings and searching within a set of strings. It is parameterized by locale and aware of Unicode. Let's take comparison and sorting features,
 
@@ -6044,7 +6062,7 @@
 
      **[⬆ Back to Top](#table-of-contents)**
 
-323. ### What is for...of statement
+324. ### What is for...of statement
 
      The for...of statement creates a loop iterating over iterable objects or elements such as built-in String, Array, Array-like objects (like arguments or NodeList), TypedArray, Map, Set, and user-defined iterables. The basic usage of for...of statement on arrays would be as below,
 
@@ -6059,7 +6077,7 @@
 
      **[⬆ Back to Top](#table-of-contents)**
 
-324. ### What is the output of below spread operator array
+325. ### What is the output of below spread operator array
 
      ```javascript
      [..."John Resig"];
@@ -6071,13 +6089,13 @@
 
      **[⬆ Back to Top](#table-of-contents)**
 
-325. ### Is PostMessage secure
+326. ### Is PostMessage secure
 
      Yes, postMessages can be considered very secure as long as the programmer/developer is careful about checking the origin and source of an arriving message. But if you try to send/receive a message without verifying its source will create cross-site scripting attacks.
 
      **[⬆ Back to Top](#table-of-contents)**
 
-326. ### What are the problems with postmessage target origin as wildcard
+327. ### What are the problems with postmessage target origin as wildcard
 
      The second argument of postMessage method specifies which origin is allowed to receive the message. If you use the wildcard “\*” as an argument then any origin is allowed to receive the message. In this case, there is no way for the sender window to know if the target window is at the target origin when sending the message. If the target window has been navigated to another origin, the other origin would receive the data. Hence, this may lead to XSS vulnerabilities.
 
@@ -6087,7 +6105,7 @@
 
      **[⬆ Back to Top](#table-of-contents)**
 
-327. ### How do you avoid receiving postMessages from attackers
+328. ### How do you avoid receiving postMessages from attackers
 
      Since the listener listens for any message, an attacker can trick the application by sending a message from the attacker’s origin, which gives an impression that the receiver received the message from the actual sender’s window. You can avoid this issue by validating the origin of the message on the receiver's end using the “message.origin” attribute. 
      
@@ -6104,38 +6122,38 @@
 
      **[⬆ Back to Top](#table-of-contents)**
 
-328. ### Can I avoid using postMessages completely
+329. ### Can I avoid using postMessages completely
 
      You cannot avoid using postMessages completely(or 100%). Even though your application doesn’t use postMessage considering the risks, a lot of third party scripts use postMessage to communicate with the third party service. So your application might be using postMessage without your knowledge.
 
      **[⬆ Back to Top](#table-of-contents)**
 
-329. ### Is postMessages synchronous
+330. ### Is postMessages synchronous
 
      The postMessages are synchronous in IE8 browser but they are asynchronous in IE9 and all other modern browsers (i.e, IE9+, Firefox, Chrome, Safari).Due to this asynchronous behaviour, we use a callback mechanism when the postMessage is returned.
 
      **[⬆ Back to Top](#table-of-contents)**
 
-330. ### What paradigm is Javascript
+331. ### What paradigm is Javascript
 
      JavaScript is a multi-paradigm language, supporting imperative/procedural programming, Object-Oriented Programming and functional programming. JavaScript supports Object-Oriented Programming with prototypical inheritance.
 
      **[⬆ Back to Top](#table-of-contents)**
 
-331. ### What is the difference between internal and external javascript
+332. ### What is the difference between internal and external javascript
 
      **Internal JavaScript:** It is the source code within the script tag.
      **External JavaScript:** The source code is stored in an external file(stored with .js extension) and referred with in the tag.
 
      **[⬆ Back to Top](#table-of-contents)**
 
-332. ### Is JavaScript faster than server side script
+333. ### Is JavaScript faster than server side script
 
      Yes, JavaScript is faster than server side scripts. Because JavaScript is a client-side script it does not require any web server’s help for its computation or calculation. So JavaScript is always faster than any server-side script like ASP, PHP, etc.
 
      **[⬆ Back to Top](#table-of-contents)**
 
-333. ### How do you get the status of a checkbox
+334. ### How do you get the status of a checkbox
 
      You can apply the `checked` property on the selected checkbox in the DOM. If the value is `true` it means the checkbox is checked, otherwise it is unchecked. For example, the below HTML checkbox element can be access using javascript as below:
 
@@ -6150,13 +6168,13 @@
 
      **[⬆ Back to Top](#table-of-contents)**
 
-334. ### What is the purpose of double tilde operator
+335. ### What is the purpose of double tilde operator
 
      The double tilde operator(~~) is known as double NOT bitwise operator. This operator is a slightly quicker substitute for Math.floor().
 
      **[⬆ Back to Top](#table-of-contents)**
 
-335. ### How do you convert character to ASCII code
+336. ### How do you convert character to ASCII code
 
      You can use the `String.prototype.charCodeAt()` method to convert string characters to ASCII numbers. For example, let's find ASCII code for the first letter of 'ABC' string,
 
@@ -6172,7 +6190,7 @@
 
      **[⬆ Back to Top](#table-of-contents)**
 
-336. ### What is ArrayBuffer
+337. ### What is ArrayBuffer
 
      An ArrayBuffer object is used to represent a generic, fixed-length raw binary data buffer. You can create it as below,
 
@@ -6190,7 +6208,7 @@
 
      **[⬆ Back to Top](#table-of-contents)**
 
-337. ### What is the output of below string expression
+338. ### What is the output of below string expression
 
      ```javascript
      console.log("Welcome to JS world"[0]);
@@ -6201,7 +6219,7 @@
 
      **[⬆ Back to Top](#table-of-contents)**
 
-338. ### What is the purpose of Error object
+339. ### What is the purpose of Error object
 
      The Error constructor creates an error object and the instances of error objects are thrown when runtime errors occur. The Error object can also be used as a base object for user-defined exceptions. The syntax of error object would be as below,
 
@@ -6222,7 +6240,7 @@
 
      **[⬆ Back to Top](#table-of-contents)**
 
-339. ### What is the purpose of EvalError object
+340. ### What is the purpose of EvalError object
 
      The EvalError object indicates an error regarding the global `eval()` function. Even though this exception is not thrown by JavaScript anymore, the EvalError object remains for compatibility. The syntax of this expression would be as below,
 
@@ -6241,7 +6259,7 @@
 
      **[⬆ Back to Top](#table-of-contents)**
 
-340. ### What are the list of cases error thrown from non-strict mode to strict mode
+341. ### What are the list of cases error thrown from non-strict mode to strict mode
 
      When you apply 'use strict'; syntax, some of the below cases will throw a SyntaxError before executing the script
 
@@ -6268,13 +6286,13 @@
 
      **[⬆ Back to Top](#table-of-contents)**
 
-341. ### Do all objects have prototypes
+342. ### Do all objects have prototypes
 
      No. All objects have prototypes except the base object or an object created with Object.create(null) method. The base object is Object.prototype, and its prototype is null.
 
      **[⬆ Back to Top](#table-of-contents)**
 
-342. ### What is the difference between a parameter and an argument
+343. ### What is the difference between a parameter and an argument
 
      Parameter is the variable name of a function definition whereas an argument represents the value given to a function when it is invoked. Let's explain this with a simple function
 
@@ -6289,7 +6307,7 @@
 
      **[⬆ Back to Top](#table-of-contents)**
 
-343. ### What is the purpose of some method in arrays
+344. ### What is the purpose of some method in arrays
 
      The some() method is used to test whether at least one element in the array passes the test implemented by the provided function. The method returns a boolean value. Let's take an example to test for any odd elements,
 
