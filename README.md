@@ -4439,8 +4439,9 @@
 
 232. ### What is nodejs
 
-     Node.js is a server-side platform built on Chrome's JavaScript runtime for easily building fast and scalable network applications. It is an event-based, non-blocking, asynchronous I/O runtime that uses Google's V8 JavaScript engine and libuv library.
-
+  - Node.js is an open-source, cross-platform, JavaScript runtime environment that executes JavaScript code outside a web browser
+  - It is a server-side platform built on Chrome's (V8) JavaScript runtime for easily building fast and scalable network applications
+  - Traditionally, JavaScript was primarily used for client-side scripting in browsers. Node.js allows developers to use JavaScript for server-side scripting, enabling them to write both the front-end and back-end of web applications in the same language.
      **[⬆ Back to Top](#table-of-contents)**
 
 233. ### What is an Intl object
